@@ -10,7 +10,7 @@ def quit():
 
 def print_hire_details():
     # these are the global variables that are used
-    global j_names, total_entries, name_count
+    global total_entries, name_count
     name_count = 0
     # Create the column headings
     Label(main_window, font=("Helvetica 10 bold"),
