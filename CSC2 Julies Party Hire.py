@@ -70,3 +70,14 @@ def check_inputs():
     if input_check == 0:
         append_name()
 
+def append_name():
+    # these are the global variables that are used
+    global camp_details, name, item, amount_item, total_entries
+    # append each item to its own area of the list
+    camp_details.append([name.get(), item.get(),
+                         amount_item.get()])
+    # clear the boxes
+    name.delete(0, 'end')
+    item.delete(0, 'end')
+    amount_item.delete(0, 'end')
+    total_entries += 1
