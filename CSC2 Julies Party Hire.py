@@ -34,8 +34,6 @@ def print_hire_details():
             column=2, row=name_count+8)
         Label(main_window, text=(hire_details[name_count][2])).grid(
             column=3, row=name_count+8)
-        Label(main_window, text=(hire_details[name_count][3])).grid(
-            column=4, row=name_count+8)
         name_count += 1
 
 
@@ -44,7 +42,7 @@ def print_hire_details():
 
 def check_inputs():
     # these are the global variables that are used
-    global hire_details, name, item, amount_items, total_entries
+    global hire_details, name, item, amount_item, total_entries
     input_check = 0
     Label(main_window, text="               ") .grid(column=2, row=0)
     Label(main_window, text="               ") .grid(column=2, row=1)
@@ -59,12 +57,12 @@ def check_inputs():
         Label(main_window, fg="red", text="Required") .grid(column=2, row=1)
         input_check = 1
     # Check the number of campers is not blank and between 5 and 10, set error text if blank
-    if (amount_items.get().isdigit()):
-        if int(amount_items.get()) < 5 or int(amount_items.get()) > 10:
-            Label(main_window, fg="red", text="5-10 only") .grid(column=2, row=2)
+    if (amount_item.get().isdigit()):
+        if int(amount_item.get()) < 1 or int(amount_item.get()) > 500:
+            Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
             input_check = 1
     else:
-        Label(main_window, fg="red", text="5-10 only") .grid(column=2, row=2)
+        Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
         input_check = 1
     # Check that weather is not blank, set error text if blank
     if input_check == 0:
@@ -119,7 +117,7 @@ def setup_buttons():
     Label(main_window, text="Amounts of item") .grid(column=0, row=2, sticky=E)
     amount_item = Entry(main_window)
     amount_item.grid(column=1, row=2)
-    Label(main_window, text="Row #") .grid(column=3, row=2, sticky=E)
+    Label(main_window, text="Receipt #") .grid(column=3, row=2, sticky=E)
     delete_item = Entry(main_window)
     delete_item .grid(column=4, row=2)
     Button(main_window, text="Delete Row", command=delete_row,
@@ -127,3 +125,17 @@ def setup_buttons():
     Label(main_window, text="               ") .grid(column=2, row=0)
 
 
+def main():
+    # these are the global variables that are used
+    global main_window
+    global hire_details, total_entries
+    # create empty list for camp details and empty variable for entries in the list
+    hire_details = []
+    total_entries = 0
+    # create the GUI and start it up
+    main_window = Tk()
+    setup_buttons()
+    main_window.mainloop()
+
+
+main()
