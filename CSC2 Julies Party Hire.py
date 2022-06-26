@@ -37,3 +37,36 @@ def print_camp_details():
         Label(main_window, text=(hire_details[name_count][3])).grid(
             column=4, row=name_count+8)
         name_count += 1
+
+
+# Check the inputs are all valid
+
+
+def check_inputs():
+    # these are the global variables that are used
+    global camp_details, name, item, amount_items, total_entries
+    input_check = 0
+    Label(main_window, text="               ") .grid(column=2, row=0)
+    Label(main_window, text="               ") .grid(column=2, row=1)
+    Label(main_window, text="               ") .grid(column=2, row=2)
+    Label(main_window, text="               ") .grid(column=2, row=3)
+    # Check that leader is not blank, set error text if blank
+    if len(name.get()) == 0:
+        Label(main_window, fg="red", text="Required") .grid(column=2, row=0)
+        input_check = 1
+    # Check that location is not blank, set error text if blank
+    if len(item.get()) == 0:
+        Label(main_window, fg="red", text="Required") .grid(column=2, row=1)
+        input_check = 1
+    # Check the number of campers is not blank and between 5 and 10, set error text if blank
+    if (amount_items.get().isdigit()):
+        if int(amount_items.get()) < 5 or int(amount_items.get()) > 10:
+            Label(main_window, fg="red", text="5-10 only") .grid(column=2, row=2)
+            input_check = 1
+    else:
+        Label(main_window, fg="red", text="5-10 only") .grid(column=2, row=2)
+        input_check = 1
+    # Check that weather is not blank, set error text if blank
+    if input_check == 0:
+        append_name()
+
