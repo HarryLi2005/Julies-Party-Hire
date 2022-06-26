@@ -99,23 +99,23 @@ def setup_buttons():
     Label(main_window, text="Customer Name") .grid(column=0, row=0, sticky=E)
     name = Entry(main_window)
     name.grid(column=1, row=0)
-    Label(main_window, text="Item") .grid(column=0, row=1, sticky=E)
+    Label(main_window, text="Item") .grid(column=3, row=0, sticky=E)
     item = Entry(main_window)
-    item.grid(column=1, row=1)
+    item.grid(column=4, row=0)
     Button(main_window, text="Quit", command=quit,
-           width=10) .grid(column=4, row=0, sticky=E)
+           width=10) .grid(column=8, row=0, sticky=E)
     Button(main_window, text="Append Details",
-           command=check_inputs) .grid(column=3, row=1)
+           command=check_inputs) .grid(column=8, row=1)
     Button(main_window, text="Print Details", command=print_hire_details,
-           width=10) .grid(column=4, row=1, sticky=E)
-    Label(main_window, text="Amounts of item") .grid(column=0, row=2, sticky=E)
+           width=10) .grid(column=8, row=2, sticky=E)
+    Label(main_window, text="Amounts of item") .grid(column=5, row=0, sticky=E)
     amount_item = Entry(main_window)
-    amount_item.grid(column=1, row=2)
-    Label(main_window, text="Receipt #") .grid(column=3, row=2, sticky=E)
+    amount_item.grid(column=6, row=0)
+    Label(main_window, text="Receipt #") .grid(column=6, row=4, sticky=E)
     delete_item = Entry(main_window)
-    delete_item .grid(column=4, row=2)
+    delete_item .grid(column=7, row=4)
     Button(main_window, text="Delete Row", command=delete_row,
-           width=10) .grid(column=4, row=3, sticky=E)
+           width=10) .grid(column=8, row=4, sticky=E)
     Label(main_window, text="               ") .grid(column=2, row=0)
 
 
