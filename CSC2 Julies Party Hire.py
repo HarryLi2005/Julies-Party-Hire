@@ -1,13 +1,11 @@
 # import tkinter so we can make a GUI
 from tkinter import *
 
-# quit subroutine
-
 
 def quit():
     main_window.destroy()
 
-# print details of all the camps
+# print details
 
 
 def print_hire_details():
@@ -48,15 +46,12 @@ def check_inputs():
     Label(main_window, text="               ") .grid(column=2, row=1)
     Label(main_window, text="               ") .grid(column=2, row=2)
     Label(main_window, text="               ") .grid(column=2, row=3)
-    # Check that leader is not blank, set error text if blank
     if len(name.get()) == 0:
         Label(main_window, fg="red", text="Required") .grid(column=2, row=0)
         input_check = 1
-    # Check that location is not blank, set error text if blank
     if len(item.get()) == 0:
         Label(main_window, fg="red", text="Required") .grid(column=2, row=1)
         input_check = 1
-    # Check the number of campers is not blank and between 5 and 10, set error text if blank
     if (amount_item.get().isdigit()):
         if int(amount_item.get()) < 1 or int(amount_item.get()) > 500:
             Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
@@ -64,7 +59,6 @@ def check_inputs():
     else:
         Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
         input_check = 1
-    # Check that weather is not blank, set error text if blank
     if input_check == 0:
         append_name()
 
@@ -129,7 +123,6 @@ def main():
     # these are the global variables that are used
     global main_window
     global hire_details, total_entries
-    # create empty list for camp details and empty variable for entries in the list
     hire_details = []
     total_entries = 0
     # create the GUI and start it up
