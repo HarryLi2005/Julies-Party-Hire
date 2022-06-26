@@ -44,7 +44,7 @@ def print_hire_details():
 
 def check_inputs():
     # these are the global variables that are used
-    global camp_details, name, item, amount_items, total_entries
+    global hire_details, name, item, amount_items, total_entries
     input_check = 0
     Label(main_window, text="               ") .grid(column=2, row=0)
     Label(main_window, text="               ") .grid(column=2, row=1)
@@ -72,9 +72,9 @@ def check_inputs():
 
 def append_name():
     # these are the global variables that are used
-    global camp_details, name, item, amount_item, total_entries
+    global hire_details, name, item, amount_item, total_entries
     # append each item to its own area of the list
-    camp_details.append([name.get(), item.get(),
+    hire_details.append([name.get(), item.get(),
                          amount_item.get()])
     # clear the boxes
     name.delete(0, 'end')
@@ -100,4 +100,30 @@ def delete_row():
     print_hire_details()
 
 
-    
+def setup_buttons():
+    # these are the global variables that are used
+    global hire_details, name, item, amount_item, total_entries, delete_item
+    # create all the empty and default labels, buttons and entry boxes. Put them in the correct grid location
+    Label(main_window, text="Customer Name") .grid(column=0, row=0, sticky=E)
+    name = Entry(main_window)
+    name.grid(column=1, row=0)
+    Label(main_window, text="Item") .grid(column=0, row=1, sticky=E)
+    item = Entry(main_window)
+    item.grid(column=1, row=1)
+    Button(main_window, text="Quit", command=quit,
+           width=10) .grid(column=4, row=0, sticky=E)
+    Button(main_window, text="Append Details",
+           command=check_inputs) .grid(column=3, row=1)
+    Button(main_window, text="Print Details", command=print_hire_details,
+           width=10) .grid(column=4, row=1, sticky=E)
+    Label(main_window, text="Amounts of item") .grid(column=0, row=2, sticky=E)
+    amount_item = Entry(main_window)
+    amount_item.grid(column=1, row=2)
+    Label(main_window, text="Row #") .grid(column=3, row=2, sticky=E)
+    delete_item = Entry(main_window)
+    delete_item .grid(column=4, row=2)
+    Button(main_window, text="Delete Row", command=delete_row,
+           width=10) .grid(column=4, row=3, sticky=E)
+    Label(main_window, text="               ") .grid(column=2, row=0)
+
+
