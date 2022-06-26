@@ -47,17 +47,17 @@ def check_inputs():
     Label(main_window, text="               ") .grid(column=2, row=2)
     Label(main_window, text="               ") .grid(column=2, row=3)
     if len(name.get()) == 0:
-        Label(main_window, fg="red", text="Required") .grid(column=2, row=0)
+        Label(main_window, fg="red", text="Required") .grid(column=1, row=1)
         input_check = 1
     if len(item.get()) == 0:
-        Label(main_window, fg="red", text="Required") .grid(column=2, row=1)
+        Label(main_window, fg="red", text="Required") .grid(column=4, row=1)
         input_check = 1
     if (amount_item.get().isdigit()):
         if int(amount_item.get()) < 1 or int(amount_item.get()) > 500:
-            Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
+            Label(main_window, fg="red", text="1-500 only") .grid(column=6, row=1)
             input_check = 1
     else:
-        Label(main_window, fg="red", text="1-500 only") .grid(column=2, row=2)
+        Label(main_window, fg="red", text="1-500 only") .grid(column=6, row=1)
         input_check = 1
     if input_check == 0:
         append_name()
